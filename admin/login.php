@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../app/bootstrap.php';
+
 $router   = new app_Libs_Router();
 $db       = new app_Libs_DbConnection();
 $identity = new app_Libs_UserIdentity();
@@ -15,7 +17,7 @@ if ($identity->isLogin()) {
    Cấu hình SMTP Gmail — chỉnh 3 dòng này
 ═══════════════════════════════════════════════════════════ */
 define('SMTP_USER', 'moelandrare@gmail.com');       // Gmail của bạn
-define('SMTP_PASS', 'bxvh laqh mqyj yqdv');        // App Password 16 ký tự
+define('SMTP_PASS', getenv('GMAIL_APP_PASSWORD'));        // App Password 16 ký tự
 define('SMTP_FROM_NAME', 'Manta Vietnam');
 
 /* ═══════════════════════════════════════════════════════════
