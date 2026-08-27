@@ -1,0 +1,611 @@
+/* ══════════════════════════════════════════════
+   wallet.css — Kết nối ví crypto (MetaMask)
+   Dùng cho: stake-btn, wallet-modal, wallet-panel
+   ══════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── BIẾN MÀU ── */
+:root {
+    --bg: #f7f8fc;
+    --surface: #ffffff;
+    --surface2: #f1f3f9;
+    --border: rgba(0, 0, 0, 0.08);
+    --accent: #2563eb;
+    --accent2: #7c3aed;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --green: #16a34a;
+    --red: #dc2626;
+    --pink: #db2777;
+}
+
+
+/* ── NÚT "KẾT NỐI VÍ" (stake-btn) ──
+   Hiện trước khi ví được kết nối; ẩn sau khi kết nối */
+.stake-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.stake-btn:hover { opacity: 0.9; }
+
+/* Màu nút khi header đã scroll */
+#header.scrolled .stake-btn { background: #7f5ca5; }
+
+
+/* ── NÚT TRIGGER VÍ (wallet-trigger) ──
+   Hiện sau khi ví kết nối, hiển thị địa chỉ & số dư */
+.wallet-trigger {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.wallet-trigger:hover { opacity: 0.9; }
+
+/* Layout nội dung trigger: địa chỉ + số dư cạnh nhau */
+.wallet-trigger .trigger-info { flex-direction: row; }
+
+/* Ẩn trigger khi chưa kết nối ví */
+.wallet-trigger.hidden { display: none; }
+
+
+/* ══════════════════════════════════════════════
+   MODAL CHỌN VÍ
+   ══════════════════════════════════════════════ */
+
+/* ── NỀN MỜ MODAL ──
+   Phủ toàn màn hình, ẩn mặc định */
+.wallet-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .75);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* ── HỘP MODAL ── */
+.wallet-box {
+    width: 380px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    animation: popIn .22s ease;
+}
+
+@keyframes popIn {
+    from { transform: scale(.94); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Header modal: tiêu đề + nút đóng */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.modal-header h2 { font-size: 18px; font-weight: 700; }
+
+/* Nút đóng modal (×) */
+.close-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+}
+
+/* ── DANH SÁCH VÍ ──
+   Mỗi item là 1 loại ví (VD: MetaMask) */
+.wallet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wallet-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: #d781dc;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.wallet-item:hover {
+    border-color: var(--accent);
+    background: #1f3369;
+}
+
+.wallet-item img { width: 32px; }
+.wallet-item span { font-weight: 600; }
+
+
+/* ══════════════════════════════════════════════
+   PANEL VÍ (sau khi kết nối)
+   Hiện như dropdown khi click wallet-trigger
+   ══════════════════════════════════════════════ */
+.wallet-panel {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 500px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 22px;
+    display: none;
+    color: var(--text);
+    animation: popIn .18s ease;
+    z-index: 999;
+}
+
+/* Header panel: địa chỉ + nút ngắt kết nối */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Hàng địa chỉ: avatar + địa chỉ rút gọn + mạng */
+.panel-addr-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Avatar gradient tròn trong panel */
+.panel-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f97316, #ec4899);
+}
+
+.panel-addr { font-size: 14px; font-weight: 600; }
+
+/* Tên mạng (BNB Smart Chain) + chấm xanh online */
+.panel-network {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.net-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+}
+
+/* Nút ngắt kết nối */
+.disconnect-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239, 68, 68, .12);
+    border: 1px solid rgba(239, 68, 68, .2);
+    color: var(--red);
+    padding: 7px 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background .2s, border-color .2s;
+}
+
+.disconnect-btn:hover {
+    background: rgba(239, 68, 68, .22);
+    border-color: rgba(239, 68, 68, .4);
+}
+
+.disconnect-btn svg { width: 14px; height: 14px; }
+
+/* ── THẺ SỐ DƯ ── */
+.balance-card {
+    background: linear-gradient(135deg, rgba(32, 129, 226, .15), rgba(124, 58, 237, .15));
+    border: 1px solid rgba(124, 58, 237, .25);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.balance-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.balance-amount { font-size: 28px; font-weight: 700; letter-spacing: -.5px; }
+.balance-usd { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* Chỉ báo thay đổi (màu xanh = tăng) */
+.balance-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    margin-top: 8px;
+}
+
+/* ── HÀNG SAO CHÉP ĐỊA CHỈ ── */
+.copy-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 13px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.copy-row .full-addr {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 2px;
+    transition: color .2s;
+}
+
+.copy-btn:hover { color: var(--text); }
+
+/* ── DANH SÁCH HÀNH ĐỘNG (Mua / Nhận / Gửi) ── */
+.wallet-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wallet-action {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.wallet-action:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+}
+
+/* Icon tròn màu cho mỗi hành động */
+.action-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.icon-buy  { background: linear-gradient(135deg, #f97316, #ec4899); }
+.icon-recv { background: linear-gradient(135deg, #7c3aed, #2081e2); }
+.icon-send { background: linear-gradient(135deg, #0ea5e9, #22c55e); }
+
+.action-text b { font-size: 14px; display: block; }
+.action-text p { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+
+/* ══════════════════════════════════════════════
+   XÁC NHẬN NGẮT KẾT NỐI
+   Lớp phủ bên trong wallet-panel
+   ══════════════════════════════════════════════ */
+.confirm-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--surface);
+    border-radius: 24px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    z-index: 10;
+    padding: 30px;
+    text-align: center;
+}
+
+.confirm-overlay.show { display: flex; }
+
+.confirm-icon { font-size: 36px; }
+.confirm-overlay h3 { font-size: 17px; font-weight: 700; }
+.confirm-overlay p { font-size: 13px; color: var(--muted); }
+
+.confirm-btns {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+/* Nút hủy */
+.btn-cancel {
+    flex: 1;
+    padding: 11px;
+    border-radius: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .2s;
+}
+
+.btn-cancel:hover { background: var(--surface2); }
+
+/* Nút xác nhận ngắt (đỏ) */
+.btn-confirm-dc {
+    flex: 1;
+    padding: 11px;
+    border-radius: 12px;
+    background: var(--red);
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity .2s;
+}
+
+.btn-confirm-dc:hover { opacity: .85; }
+
+
+/* ── TOAST THÔNG BÁO ──
+   Hiện ở dưới màn hình, tự ẩn sau 2.5s */
+.toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    z-index: 99999;
+    animation: fadeUp .3s ease;
+}
+
+.toast.show { display: flex; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LỊCH SỬ GIAO DỊCH — thêm vào cuối wallet.css
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── TIÊU ĐỀ SECTION ──────────────────────────────────────────────────── */
+.tx-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    padding: 14px 16px 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* ── NÚT LÀM MỚI ──────────────────────────────────────────────────────── */
+.tx-refresh-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ee4d2d;
+    padding: 0 4px;
+    line-height: 1;
+    transition: transform .3s;
+}
+.tx-refresh-btn:hover { transform: rotate(180deg); }
+
+/* ── DANH SÁCH TX ──────────────────────────────────────────────────────── */
+.tx-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding: 0 12px;
+}
+
+/* Thanh cuộn mảnh */
+.tx-list::-webkit-scrollbar { width: 4px; }
+.tx-list::-webkit-scrollbar-track { background: transparent; }
+.tx-list::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 2px; }
+
+/* ── MỖI DÒNG TX ──────────────────────────────────────────────────────── */
+.tx-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 6px;
+    border-radius: 10px;
+    transition: background .15s;
+}
+.tx-row:hover { background: #fafafa; }
+
+/* Icon tròn */
+.tx-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.tx-in  .tx-icon { background: #e8f5e9; color: #2e7d32; }
+.tx-out .tx-icon { background: #fff3e0; color: #e65100; }
+.tx-failed .tx-icon { background: #fce4ec; color: #c62828; }
+
+/* Info */
+.tx-info {
+    flex: 1;
+    min-width: 0;
+}
+.tx-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.tx-hash a {
+    font-size: 11px;
+    font-weight: 400;
+    color: #aaa;
+    text-decoration: none;
+    font-family: monospace;
+}
+.tx-hash a:hover { color: #ee4d2d; text-decoration: underline; }
+.tx-time {
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 2px;
+}
+
+/* Số tiền */
+.tx-amount {
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.tx-in.tx-amount,
+.tx-in  .tx-amount { color: #2e7d32; }
+.tx-out.tx-amount,
+.tx-out .tx-amount { color: #e65100; }
+.tx-failed.tx-amount,
+.tx-failed .tx-amount { color: #c62828; }
+
+/* ── SKELETON LOADING ──────────────────────────────────────────────────── */
+.tx-skeleton { padding: 8px 16px; display: flex; flex-direction: column; gap: 10px; }
+.tx-skel-row {
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── TRẠNG THÁI TRỐNG / LỖI ───────────────────────────────────────────── */
+.tx-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 20px;
+    color: #bbb;
+    font-size: 13px;
+}
+.tx-empty-icon { font-size: 28px; }
+
+.tx-error {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #c62828;
+    background: #fff8f8;
+    border-radius: 8px;
+    margin: 8px 12px;
+}
+
+/* ── LINK XEM TẤT CẢ ──────────────────────────────────────────────────── */
+.tx-view-all {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #ee4d2d;
+    text-decoration: none;
+    padding: 10px;
+    border-top: 1px solid #f5f5f5;
+    margin-top: 4px;
+    transition: background .15s;
+}
+.tx-view-all:hover { background: #fff4f2; }
+
+.tx-vnd {
+    font-size: 11px;
+    font-weight: 400;
+    color: #aaa;
+    margin-top: 2px;
+}

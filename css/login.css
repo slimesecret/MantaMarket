@@ -1,0 +1,194 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Hero chiếm toàn màn hình */
+.hero {
+    position: fixed !important;
+    inset: 0;
+    z-index: 0;
+}
+
+/* Overlay nhẹ phủ hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* Container nằm giữa màn hình, trên hero */
+.auth-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(18px) saturate(1.8);
+    -webkit-backdrop-filter: blur(18px) saturate(1.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 36px 32px;
+    box-shadow:
+        0 8px 40px rgba(240, 160, 180, 0.22),
+        0 2px 12px rgba(80, 200, 180, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    animation: card-in 0.55s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes card-in {
+    from { opacity: 0; transform: translate(-50%, -46%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Logo */
+.auth-logo {
+    display: block;
+    text-align: center;
+    margin-bottom: 22px;
+}
+.auth-logo img { height: 38px; }
+
+/* Title */
+.auth-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+}
+
+/* Error */
+.error-box {
+    background: rgba(255, 100, 100, 0.1);
+    border: 1px solid rgba(230, 80, 80, 0.35);
+    color: #e23927;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* Form groups */
+.form-group { margin-bottom: 14px; }
+
+.form-group label {
+    display: block;
+    font-size: 12.5px;
+    color: #272727;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.form-group input {
+    width: 100%;
+    border: 1.5px solid rgba(131, 224, 215, 0.475);
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.45);
+    color: #191925b6;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+    outline: none;
+}
+
+.form-group input::placeholder { color: rgb(75, 75, 107); }
+
+.form-group input:focus {
+    border-color: #f0a0b4;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0 0 3px rgba(240, 160, 180, 0.18);
+}
+
+/* Forgot */
+.forgot-link {
+    text-align: right;
+    margin-bottom: 18px;
+}
+.forgot-link a {
+    font-size: 12.5px;
+    color: #d4778a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+.forgot-link a:hover { color: #b85570; }
+
+/* Primary button */
+.btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .2s, opacity .2s;
+    letter-spacing: 0.01em;
+}
+.btn:hover  { opacity: .92; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+    background: linear-gradient(135deg, #f0a0b4 0%, #d4778a 60%, #b85570 100%);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(216, 100, 130, 0.35);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+    color: rgb(27, 27, 34);
+    font-size: 12px;
+    font-weight: 500;
+}
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(184,237,232,0.6), transparent);
+}
+
+/* Social buttons */
+.social-btns { display: flex; gap: 10px; }
+
+.btn-social {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(184, 237, 232, 0.55);
+    background: rgba(255, 255, 255, 0.35);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: background .2s, border-color .2s, transform .15s;
+    text-decoration: none;
+    color: inherit;
+}
+.btn-social:hover {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(240,160,180,0.5);
+    transform: translateY(-1px);
+}
+.btn-facebook { color: #1877f2; }
+.btn-google   { color: #444; }

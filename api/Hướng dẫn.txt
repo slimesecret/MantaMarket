@@ -1,0 +1,80 @@
+1 cài extension cho chome:  https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?pli=1
+Ví USER: file excess weasel lift garden history nation warm food original pluck build
+Ví ADMIN: trumpet label fancy spice matrix powder pulp mutual donate slender pen antique
+Mạng BNB Testnet
+
+1. ===  MantaNFT.sol 
+Chọn link và dán file vào: https://remix.ethereum.org/     -->     Compile     -->      Deploy & run transacsions      
+-->         Browser Extension      -->     MetaMask       -->     Deploy	--> 	Mint
+
+0x81E2f77edacEDd2CE1fF5638d1804bF524bFa4cE
+http://localhost/MantaMarket/public/nft/1.json
+Done;
+
+
+2. Chạy trong terminal 
+---> ngrok config add-authtoken 3DHNFFVGDeJFeylNnxe6Crluqcd_zst97u7ZA8vuhDXr3Vu8
+---> ngrok http 80
+
+
+3. === Cập nhật thanhtoan.php
+const CONTRACT = '0xc125c67f50fd85Af11209Bc2f38Baa0ba7df9A1F'; // ← cập nhật sau khi deploy lại
+
+
+4. Chuyển thì phải nhập NFT để hiện 
+0xc125c67f50fd85Af11209Bc2f38Baa0ba7df9A1F
+id1
+và mở https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/nft/12___en_XXL.json để có ảnh
+
+5. KeyMap:    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjE5NTQxMDA3LWVhZDAtNGY0NS04ZTYxLTdlNDUzMDBlZWQ4YyIsIm9yZ0lkIjoiNTE0ODczIiwidXNlcklkIjoiNTI5ODEwIiwidHlwZUlkIjoiZmMwOTlmMzItMWYwYS00ZDZhLThmNTAtZDc1NWUxZWRkNDcxIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NzgzMTgwMzAsImV4cCI6NDkzNDA3ODAzMH0.s9IJTyO4ufQH95WSJmTeQyanni-LoK5NlsKjZbGngL0
+
+6. Mail admin:   moelandrare@gmail.com 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Đang sửa để thay thế trang <!-- Tài khoản của tôi  -->
+Done
+
+<!--======================== đây là products.php nhấn mua  ========================-->
+onclick="handleBuyNow(<?= $product_id ?>)
+
+
+
+handleBuyNow 	chưa kết nối ví gọi	 showWalletPrompt 
+		kết nối rồi gọi		 buyWithNFT
+
+
+
+

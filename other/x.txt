@@ -1,0 +1,14 @@
+$router = new app_Libs_Router();
+$db = new app_Libs_DbConnection();
+$danhMuc = new app_Models_Danhmuc();
+// SAU (chỉ lấy is_active = 1)
+$opendm = $danhMuc->buildQueryParams([
+    "select" => "*",
+    "where"  => "is_active = :is_active",
+    "params" => [":is_active" => 1],
+    "other"  => "ORDER BY sort_order ASC"
+])->select();
+
+
+
+

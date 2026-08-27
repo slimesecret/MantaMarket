@@ -1,0 +1,200 @@
+/* ══════════════════════════════════════════════
+   bg.css — Hero section (parallax background)
+   Dùng cho: <section class="hero"> trong home.php
+   ══════════════════════════════════════════════ */
+
+/* Reset cơ bản — toàn trang */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* bg.css — sửa .hero */
+.hero {
+    
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: visible; /* ← đổi từ hidden → visible */
+    background: linear-gradient(180deg, #f8c0c8 0%, #f9a8b8 30%, #f0d0d8 60%, #b8ede8 100%);
+}
+/* ── PARALLAX LAYER BASE ──
+   Lớp nền dùng chung; các lớp cụ thể kế thừa */
+.layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* ── NÚI XA (layer-back-mountain) ──
+   Ảnh núi phía sau, nổi lên xuống chậm */
+.layer-back-mountain {
+    bottom: 0;
+    height: 55%;
+    background: url('../img/home-back-mountain.png') bottom center / cover no-repeat;
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+/* ── NÚI GẦN (layer-front-mountain) ──
+   Ảnh núi phía trước, nổi nhanh hơn lớp sau */
+.layer-front-mountain {
+    bottom: 0;
+    height: 60%;
+    background: url('../img/home-front-mountain.png') bottom center / cover no-repeat;
+    animation: float-medium 5s ease-in-out infinite;
+    animation-delay: -1.5s;
+}
+
+/* ── NỀN TRĂNG / TOÀN CẢNH (layer-bg) ──
+   Ảnh mờ phủ toàn hero, tạo chiều sâu */
+.layer-bg {
+    top: 0;
+    bottom: 0;
+    background: url('../img/manta-home-bg-h5.png') center / cover no-repeat;
+    opacity: 0.35;
+}
+
+/* ── CÁ MANTA 1 (layer-fish) ──
+   Cá trái, nổi lên xuống kèm xoay nhẹ */
+.layer-fish {
+    top: 8%;
+    left: 2%;
+    width: 340px;
+    height: auto;
+    animation: float-fish 7s ease-in-out infinite;
+}
+
+.layer-fish img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 32px rgba(80, 200, 255, 0.35));
+}
+
+/* ── CÁ MANTA 2 (layer-fish2) ──
+   Cá phải, cùng animation với cá 1 */
+.layer-fish2 {
+    top: 2%;
+    left: 82%;
+    width: 340px;
+    height: auto;
+    animation: float-fish 7s ease-in-out infinite;
+}
+
+.layer-fish2 img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 8px 32px rgba(80, 200, 255, 0.35));
+}
+
+/* ── LABUBU MASCOT (layer-labubu) ──
+   Nhân vật góc dưới trái, nổi lên xuống */
+.layer-labubu {
+    bottom: 5%;
+    left: 2%;
+    width: 160px;
+    animation: float-labubu 4.5s ease-in-out infinite;
+    animation-delay: -0.8s;
+}
+
+.layer-labubu img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.18));
+}
+
+/* ── NỘI DUNG HERO (hero-content) ──
+   Text tiêu đề đặt giữa hero */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    width: 90%;
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: #111;
+    letter-spacing: -0.03em;
+}
+
+.hero-content p {
+    margin-top: 18px;
+    font-size: 1.15rem;
+    color: #333;
+    letter-spacing: 0.01em;
+}
+
+
+/* ══════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+/* Núi xa — nổi chậm */
+@keyframes float-slow {
+    0%, 100% { transform: translateY(15px); }
+    50%       { transform: translateY(24px); }
+}
+
+/* Núi gần — nổi vừa */
+@keyframes float-medium {
+    0%, 100% { transform: translateY(10px); }
+    50%       { transform: translateY(20px); }
+}
+
+/* Cá Manta — nổi kèm xoay */
+@keyframes float-fish {
+    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+    40%       { transform: translateY(-22px) rotate(2deg); }
+    60%       { transform: translateY(-16px) rotate(0deg); }
+}
+
+/* Labubu — nổi kèm lắc nhẹ */
+@keyframes float-labubu {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50%       { transform: translateY(-12px) rotate(1deg); }
+}
+
+/* ── HERO TOP PRODUCTS OVERLAY ── */
+/* bg.css */
+.hero-top-products {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+padding: 0 80px; /* ← tăng padding ngang để thu hẹp chiều rộng */
+    pointer-events: auto; /* ← thêm dòng này */
+    
+}
+
+.hero-top-products-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px; /* ← bo tròn 4 góc thay vì chỉ trên */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+/* Card sản phẩm trong hero — nền trong suốt hơn */
+.hero-top-products .prod-rank-item {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+.hero-top-products .prod-rank-item:hover {
+    background: rgba(255, 255, 255, 0.97);
+}

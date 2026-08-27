@@ -1,0 +1,171 @@
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f5f5f5; color: #222; }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 1400px; margin: auto; }
+
+        /* ===== SHOP HEADER ===== */
+        .shop-header {
+            display: flex; justify-content: space-between; gap: 30px;
+            background: #fff; padding: 30px; margin-top: 20px; border-radius: 6px;
+        }
+        .shop-left {
+            width: 42%;
+            background: linear-gradient(135deg, #23274d, #3a3567);
+            border-radius: 6px; padding: 20px; color: #fff;
+            position: relative; overflow: hidden;
+        }
+        .shop-info { display: flex; align-items: center; gap: 15px; }
+        .shop-avatar {
+            width: 95px; height: 95px; border-radius: 50%;
+            border: 4px solid rgba(255,255,255,.5);
+            object-fit: cover; background: #ddd;
+        }
+        .shop-name-wrap { display: flex; align-items: center; gap: 8px; }
+        .shop-name { font-size: 20px; font-weight: 600; }
+        .verified-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 22px; height: 22px; background: #ee4d2d; border-radius: 50%;
+            font-size: 11px; color: #fff; flex-shrink: 0;
+        }
+        .shop-actions { display: flex; gap: 12px; margin-top: 20px; }
+        .shop-btn {
+            flex: 1; height: 42px; border: 1px solid rgba(255,255,255,.7);
+            background: transparent; color: #fff; border-radius: 3px;
+            cursor: pointer; font-size: 16px; transition: .3s;
+        }
+        .shop-btn:hover { background: rgba(255,255,255,.15); }
+
+        .shop-right {
+            flex: 1; display: grid; grid-template-columns: repeat(2,1fr);
+            gap: 25px 50px; align-content: center;
+        }
+        .shop-stat { display: flex; align-items: center; gap: 10px; font-size: 17px; }
+        .shop-stat i { color: #555; width: 18px; text-align: center; }
+        .highlight { color: #ee4d2d; }
+
+        /* ===== MENU ===== */
+        .shop-menu {
+            margin-top: 20px; background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            gap: 70px; height: 70px; border-bottom: 1px solid #eee;
+        }
+        .shop-menu a {
+            position: relative; font-size: 17px; color: #333; padding-bottom: 20px;
+            white-space: nowrap;
+        }
+        .shop-menu a.active { color: #ee4d2d; }
+        .shop-menu a.active::after {
+            content: ""; position: absolute; left: 0; bottom: -1px;
+            width: 100%; height: 2px; background: #ee4d2d;
+        }
+
+        /* ===== VOUCHER ===== */
+        .voucher-section { background: #fff; margin-top: 25px; padding: 25px; }
+        .section-title { font-size: 18px; margin-bottom: 25px; }
+        .voucher-list { display: flex; gap: 22px; flex-wrap: wrap; }
+        .voucher-card {
+            width: 250px; max-width: 100%; height: 130px;
+            border: 1px solid #ffd1c7; background: #fff7f6;
+            display: flex; border-radius: 4px; overflow: hidden;
+        }
+
+
+        
+        .voucher-left { flex: 1; padding: 15px 20px; }
+        .voucher-title { font-size: 14px; color: #ee4d2d; line-height: 1.5; }
+        .voucher-code {
+            margin-top: 6px; font-size: 13px; color: #999;
+            background: rgba(0,0,0,.04); display: inline-block;
+            padding: 2px 8px; border-radius: 3px; font-family: monospace;
+        }
+        .voucher-date { margin-top: 12px; font-size: 14px; color: #666; }
+        .voucher-right {
+            width: 105px; border-left: 1px dashed #ddd;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .save-btn {
+            background: #ee4d2d; border: none; color: #fff;
+            width: 75px; height: 36px; border-radius: 3px;
+            cursor: pointer; font-size: 15px;
+        }
+        .save-btn:hover { background: #d73211; }
+
+        /* ===== PRODUCTS ===== */
+        .products-section { margin-top: 50px; padding-bottom: 50px; }
+        .products-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px;
+        }
+        .products-title { font-size: 18px; color: #666; }
+        .view-all { color: #ee4d2d; font-size: 16px; }
+        .product-grid {
+            display: grid; grid-template-columns: repeat(6,1fr); gap: 15px;
+        }
+
+        .product-badge {
+            position: absolute; top: 8px; left: 8px;
+            background: rgba(255,212,36,.9); color: #c0392b;
+            font-size: 12px; padding: 2px 6px; border-radius: 2px; font-weight: bold;
+        }
+        .product-info { padding: 12px; }
+        .product-name {
+            font-size: 14px; line-height: 1.5; height: 42px;
+            overflow: hidden; display: -webkit-box;
+        }
+        .product-meta {
+            display: flex; align-items: center; gap: 6px;
+            margin-top: 8px; font-size: 13px; color: #999;
+        }
+        .product-meta .stars { color: #ee4d2d; }
+        .product-bottom {
+            display: flex; justify-content: space-between;
+            align-items: flex-end; margin-top: 8px;
+        }
+        .product-price { color: #ee4d2d; font-size: 18px; font-weight: bold; }
+        .product-sold { font-size: 12px; color: #999; }
+
+        .no-products {
+            grid-column: 1 / -1; text-align: center;
+            padding: 60px 20px; color: #999; font-size: 16px;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex; justify-content: center; gap: 8px;
+            margin-top: 40px; list-style: none;
+        }
+        .pagination a, .pagination span {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 40px; height: 40px; padding: 0 12px;
+            border: 1px solid #ddd; border-radius: 4px;
+            font-size: 15px; color: #333; background: #fff; transition: .2s;
+        }
+        .pagination a:hover { border-color: #ee4d2d; color: #ee4d2d; }
+        .pagination .active {
+            background: #ee4d2d; color: #fff; border-color: #ee4d2d;
+        }
+        .pagination .disabled { opacity: .4; pointer-events: none; }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1450px) {
+            .container { width: 95%; }
+            .product-grid { grid-template-columns: repeat(5,1fr); }
+        }
+        @media(max-width:1100px) {
+            .shop-header { flex-direction: column; }
+            .shop-left { width: 100%; }
+            .shop-right { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: repeat(3,1fr); }
+            .voucher-list { flex-direction: column; }
+            .voucher-card { width: 100%; }
+        }
+        @media(max-width:768px) {
+            .shop-menu {
+                gap: 25px; overflow-x: auto; justify-content: flex-start; padding: 0 20px;
+            }
+            .product-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media(max-width:500px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .shop-actions { flex-direction: column; }
+        }
