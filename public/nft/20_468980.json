@@ -1,0 +1,31 @@
+{
+    "name": "Loa Bluetooth JBL Charge 5",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/20/img_69f710577eaf67.98731550.webp",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Loa Bluetooth JBL Charge 5"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Đỏ"
+        },
+        {
+            "trait_type": "Size",
+            "value": ""
+        },
+        {
+            "trait_type": "Price",
+            "value": "2,990,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0x8fd92a68c37946431524c4094270f3e51bfde63c8284f157818743af9b49f879"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

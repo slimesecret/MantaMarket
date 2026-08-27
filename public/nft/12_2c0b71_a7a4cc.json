@@ -1,0 +1,31 @@
+{
+    "name": "Áo Phông Nam Uniqlo Dry EX Polo",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/12/img_69f70cb96947d3.63330081.webp",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Áo Phông Nam Uniqlo Dry EX Polo"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Xanh Navy"
+        },
+        {
+            "trait_type": "Size",
+            "value": "XL"
+        },
+        {
+            "trait_type": "Price",
+            "value": "699,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0xddba87b3b29304e7b8666e3b72cc3ca599710310a931e94341421e94e5e8f9b1"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

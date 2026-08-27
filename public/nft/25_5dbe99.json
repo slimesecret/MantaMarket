@@ -1,0 +1,31 @@
+{
+    "name": "Bộ Sách Đắc Nhân Tâm - Dale Carnegie",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/25/img_69f7129a688a62.79915040.webp",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Bộ Sách Đắc Nhân Tâm - Dale Carnegie"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Bìa cứng"
+        },
+        {
+            "trait_type": "Size",
+            "value": ""
+        },
+        {
+            "trait_type": "Price",
+            "value": "189,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0xf588c5cc9a440a6197a0f8ea242dfde181228384fcc1eb991a7adf75bdc23ac1"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

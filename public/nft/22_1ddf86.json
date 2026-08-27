@@ -1,0 +1,31 @@
+{
+    "name": "Xe Đẩy Em Bé Joie Litetrax 4 DLX",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/22/img_69f71142e428f0.38684816.webp",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Xe Đẩy Em Bé Joie Litetrax 4 DLX"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Đen Obsidian"
+        },
+        {
+            "trait_type": "Size",
+            "value": ""
+        },
+        {
+            "trait_type": "Price",
+            "value": "5,490,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0xee40922eb716c2ef12c14575a67c9ffdd5e6642f701c5af7774aa7881b584216"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

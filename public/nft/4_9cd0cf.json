@@ -1,0 +1,31 @@
+{
+    "name": "Oppo Find X8 Pro",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/4/img_69f707c3a67492.45394680.jpg",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Oppo Find X8 Pro"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Xanh Lá Bạc Hà"
+        },
+        {
+            "trait_type": "Size",
+            "value": ""
+        },
+        {
+            "trait_type": "Price",
+            "value": "19,990,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0x2433ac77f27061605b6279e1be0ad9e549db30d9a8af247cb513be82bb32424a"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

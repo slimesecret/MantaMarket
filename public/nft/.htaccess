@@ -1,0 +1,4 @@
+<IfModule mod_headers.c>
+    Header set ngrok-skip-browser-warning "true"
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>

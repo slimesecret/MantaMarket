@@ -1,0 +1,31 @@
+{
+    "name": "Bộ Dụng Cụ Tập Gym Nike Pro Set",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/21/img_69f710e13a5b77.03597195.webp",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Bộ Dụng Cụ Tập Gym Nike Pro Set"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Đen/Xám"
+        },
+        {
+            "trait_type": "Size",
+            "value": ""
+        },
+        {
+            "trait_type": "Price",
+            "value": "1,490,000đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0xe080067abb4ec46f42de66d8760af04e92f0a8f4c9f7c50549d926102f286c36"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}

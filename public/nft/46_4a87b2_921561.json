@@ -1,0 +1,31 @@
+{
+    "name": "Điện thoại Vivo iQOO Z9 Turbo 5G",
+    "description": "NFT xác nhận mua hàng tại MantaMarket",
+    "image": "https://reenter-joyfully-juvenile.ngrok-free.dev/MantaMarket/public/uploads/products/46/img_6a004bebc9f322.80060692.jpg",
+    "attributes": [
+        {
+            "trait_type": "Product",
+            "value": "Điện thoại Vivo iQOO Z9 Turbo 5G"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Đen"
+        },
+        {
+            "trait_type": "Size",
+            "value": "16-1TB"
+        },
+        {
+            "trait_type": "Price",
+            "value": "6đ"
+        },
+        {
+            "trait_type": "TxHash",
+            "value": "0x42987066169b200e659215f97717b7c00773bc11cdc4755913d304c71750307b"
+        },
+        {
+            "trait_type": "Store",
+            "value": "MantaMarket"
+        }
+    ]
+}
